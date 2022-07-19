@@ -18,7 +18,8 @@ import { MatListModule } from '@angular/material/list';
 import { BotsComponent } from './components/bots/bots.component';
 import { MinerComponent } from './components/miner/miner.component';
 import { DefaultComponent } from './components/default/default.component';
-
+import { MatCardModule } from '@angular/material/card';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,10 @@ import { DefaultComponent } from './components/default/default.component';
     MatIconModule,
     MatButtonModule,
     FlexLayoutModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
+    NgbModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

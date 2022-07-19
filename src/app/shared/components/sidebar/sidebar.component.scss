@@ -14,8 +14,12 @@
         background-color: #FFE2FD;
     }
     a{
-        height: 60px;
+        height: 70px;
     }
+    .inactiveLink {
+        pointer-events: none;
+        cursor: default;
+     }
 }
 
 

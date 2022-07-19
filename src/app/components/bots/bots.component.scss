@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {
+    margin: 0 -5px;
+
+    /* Float four columns side by side */
+    .column {
+      float: left;
+      width: 33%;
+      padding: 0 10px;
+      margin-top:15px ;
+
+       /* Style the counter cards */
+      .card {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;    padding: 16px;
+        text-align: center;
+        background-color: #FFFFFF;
+      }
+      /* Responsive columns - one column layout (vertical) on small screens */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+    }
+     /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+  
+
+  .button {
+    background-color: red;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width:150px;
+    height:38px
+  }
+
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    box-shadow: 0px 0px 15px rgb(211, 201, 201);
+    border-radius:15px;
+
+    .searchButton {
+      width: 40px;
+      height: 36px;
+      border: 1px solid transparent;
+      background: white;
+      text-align: center;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .searchTerm {
+      width: 100%;
+      border-right: none;
+      padding: 15px;
+      height: 38px;
+      outline: none;
+      border: 1px solid transparent;
+  
+    }
+    
+  }
+  
+  
+
+  
