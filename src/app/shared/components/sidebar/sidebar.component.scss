@@ -1,0 +1,25 @@
+:host{
+    .mat-icon{
+        vertical-align: middle;
+    }
+    .navbarOption{
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    a:hover {
+        background-color: #FFE2FD;
+    }
+    a{
+        height: 70px;
+    }
+    .inactiveLink {
+        pointer-events: none;
+        cursor: default;
+     }
+}
+
+
