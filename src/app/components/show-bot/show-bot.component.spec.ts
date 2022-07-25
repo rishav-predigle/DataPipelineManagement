@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DefaultComponent } from './default.component';
+import { ShowBotComponent } from './show-bot.component';
 
-describe('DefaultComponent', () => {
-  let component: DefaultComponent;
-  let fixture: ComponentFixture<DefaultComponent>;
+describe('ShowBotComponent', () => {
+  let component: ShowBotComponent;
+  let fixture: ComponentFixture<ShowBotComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DefaultComponent ]
+      declarations: [ ShowBotComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DefaultComponent);
+    fixture = TestBed.createComponent(ShowBotComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

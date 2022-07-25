@@ -17,17 +17,29 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule } from '@angular/material/list';
 import { BotsComponent } from './components/bots/bots.component';
 import { MinerComponent } from './components/miner/miner.component';
-import { DefaultComponent } from './components/default/default.component';
 import { MatCardModule } from '@angular/material/card';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ShowBotComponent } from './components/show-bot/show-bot.component';
+import { CreateBotComponent } from './components/create-bot/create-bot.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { SearchComponent } from './components/search/search.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CreateMinerComponent } from './components/creat-miner/create-miner.component';
+import {FormsModule} from '@angular/forms'
+
 @NgModule({
   declarations: [
     AppComponent,
-    DefaultComponent,
     BotsComponent,
     MinerComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    ShowBotComponent,
+    CreateBotComponent,
+    SearchComponent,
+    CreateMinerComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +56,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatListModule,
     MatCardModule,
     NgbModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    HttpClientModule,
+    FormsModule
+
     
   ],
   providers: [],
