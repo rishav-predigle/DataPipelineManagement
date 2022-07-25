@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { CreateBotComponent } from '../create-bot/create-bot.component';
+import { ShowBotComponent } from '../show-bot/show-bot.component';
 
 @Component({
   selector: 'app-bots',
@@ -6,19 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bots.component.scss']
 })
 export class BotsComponent implements OnInit {
-
-  demoBots=[
-    {name:'Bot1',status:'live',desc:'Operates as an agent for a user or other program or to simulate a human activity Bots'},
-    {name:'Bot1',status:'live',desc:'Operates as an agent for a user or other program or to simulate a human activity Bots'},
-    {name:'Bot1',status:'scheduled',desc:'Operates as an agent for a user or other program or to simulate a human activity Bots'},
-    {name:'Bot1',status:'scheduled',desc:'Operates as an agent for a user or other program or to simulate a human activity Bots'},
-    {name:'Bot1',status:'scheduled',desc:'Operates as an agent for a user or other program or to simulate a human activity Bots'},
-    {name:'Bot1',status:'scheduled',desc:'Operates as an agent for a user or other program or to simulate a human activity Bots'},
-
-  ]
+  content:any
+  toDisplay = true;
   constructor() { }
-
+ 
   ngOnInit(): void {
+    this.content=ShowBotComponent
+  }
+
+  loadCreatebot(){
+    this.content=CreateBotComponent
+    this.toDisplay = false;
   }
 
 }

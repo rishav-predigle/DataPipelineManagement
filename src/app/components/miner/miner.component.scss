@@ -1,0 +1,87 @@
+
+  .button {
+    background-color: red;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width:150px;
+    height:38px
+  } 
+
+
+   /* Remove extra left and right margins, due to padding in columns */
+ .row {
+    margin: 0 -5px;
+
+    /* Float four columns side by side */
+    .column {
+      float: left;
+      width: 25%;
+      padding: 0 10px;
+      margin-top:15px ;
+      margin: 0 auto;
+
+       /* Style the counter cards */
+      .card {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;    
+        padding: 16px;
+        text-align: center;
+        height: 200px;
+        background-color: rgba(149, 157, 165, 0.2);
+      }
+      /* Responsive columns - one column layout (vertical) on small screens */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+    }
+     /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+
+  
+
+ /* Remove extra left and right margins, due to padding in columns */
+ .rowMiner {
+  margin: 0 -5px;
+
+  /* Float four columns side by side */
+  .columnMiner {
+    float: left;
+    width: 33%;
+    padding: 0 10px;
+    margin-top:15px ;
+
+     /* Style the counter cards */
+    .cardMiner {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;    padding: 16px;
+      text-align: center;
+      background-color: #FFFFFF;
+    }
+    /* Responsive columns - one column layout (vertical) on small screens */
+    @media screen and (max-width: 600px) {
+      .columnMiner {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+  }
+   /* Clear floats after the columns */
+  .rowMiner:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

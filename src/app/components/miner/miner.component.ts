@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MinersDataService } from 'src/app/services/miner/miners-data.service';
 
 @Component({
   selector: 'app-miner',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./miner.component.scss']
 })
 export class MinerComponent implements OnInit {
+  toDisplay = true;
+  miners:any
+  constructor(private minerData:MinersDataService ) { 
+    minerData.miners().subscribe( (data:any)=>{
+      // console.warn(data)
+      this.miners=data["dataminers"]
+      // console.log("testing bot",this.miners)
 
-  constructor() { }
+    })
+  }
 
   ngOnInit(): void {
+  }
+  change(){
+    this.toDisplay =! this.toDisplay
   }
 
 }
