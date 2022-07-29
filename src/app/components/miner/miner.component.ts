@@ -11,17 +11,36 @@ export class MinerComponent implements OnInit {
   miners:any
   constructor(private minerData:MinersDataService ) { 
     minerData.miners().subscribe( (data:any)=>{
-      // console.warn(data)
       this.miners=data["dataminers"]
-      // console.log("testing bot",this.miners)
-
     })
   }
 
   ngOnInit(): void {
   }
-  change(){
-    this.toDisplay =! this.toDisplay
+
+  check(display:boolean){
+    this.toDisplay=display
   }
+  // onSearchTextEntered(searchValue:string){
+  //   if (searchValue==''){
+  //     this.toDisplay=true
+  //   }else{
+  //     this.toDisplay=false
+  //   }
+  //   this.searchText=searchValue
+  //   console.log(this.searchText)
+  //   // console.log(typeof(this.miners));
+  //   // console.log(this.miners)
+  //   this.searchResult = this.miners.filter(function (el : any) {
+  //     if (searchValue==''){
+  //       return ''
+  //     }    
+  //     return el.name.toLowerCase().startsWith(searchValue.toLowerCase())
+  //   });
+  //   console.log(this.searchResult)
+  // }
+
+
+  
 
 }

@@ -1,8 +1,11 @@
 <div style="width: 100%; display: flex;">
     <div >Home</div>
-    <div style="width: 70%;  margin-left:auto;"><app-search></app-search></div>
+    <div style="width: 70%;  margin-left:auto;">
+        <app-search  (displayChanged)="check($event)"> </app-search>
+        <!-- <app-search (searchTextChanged)="onSearchTextEntered($event)"> </app-search> -->
+    </div>
 </div>
-<div >
+<div *ngIf="toDisplay">
     <div  style="display: flex;margin: 5px;">
         <div><h2 style="font-family: 'GT Eesti Pro Text';font-style: normal;font-weight: 500;font-size: 30px;line-height: 30px;">Miner details</h2></div>
         <div style="margin-left:auto;">
@@ -14,7 +17,11 @@
         <mat-divider></mat-divider>
     </div>
 </div>
-<div style="padding: 20px" *ngIf="!miners">
+
+
+
+
+<div style="padding: 20px" *ngIf="!miners && toDisplay">
     <div class="row" >
         <div class="column" >
         <div class="card" style="padding: 5px;" >
@@ -30,7 +37,7 @@
         <div style="text-align: center;margin-top: 20px;  "><button class="button"  >+ Create miner</button></div>
     </div>
 </div>
-<div style="padding: 20px" *ngIf="miners">
+<div style="padding: 20px" *ngIf="miners && toDisplay">
     <div class="rowMiner" >
         <div class="columnMiner" *ngFor="let miner of miners" >
         <div class="cardMiner" style="padding: 5px;" >
@@ -38,10 +45,10 @@
                     <!-- <div style="margin: 0 auto;">value 2.5</div> -->
                 </div>
                 <h2 style="margin-bottom: 1px;text-align: left;padding-left: 10px;">{{miner.name}}</h2>
-                <p style="font: GT Eesti Pro Text ;line-height: 25.4px; text-align: justify;padding-left:10px;padding-right:10px">{{miner.description}}</p>
+                <div style="    height: 30px;width: 95%;white-space: nowrap;overflow: hidden;text-overflow: '...'; "><p style="font: GT Eesti Pro Text ;line-height: 25.4px;text-align: justify;padding-left:10px;padding-right:10px">{{miner.description}}</p></div>
                 <mat-divider></mat-divider> 
                 <div style="width:100%;margin-top: 5px;display: flex;">
-                <div style="width:1%;margin:0 auto;background-color: green;"><button mat-raised-button color="accent">Details</button></div> 
+                <div  style="width: 100%;"><button style=" margin-left: auto; display: flex; justify-content: flex-end" mat-raised-button color="accent" routerLink="/viewMiner/{{miner.identifier}}">Details</button></div> 
                 </div>
             </div>
         </div>

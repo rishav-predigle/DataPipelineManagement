@@ -1,0 +1,36 @@
+.popup{
+    width: 312px;
+    height: 243px;
+
+    #cross{
+        display: flex; justify-content: flex-end;
+
+        #crossbtn{
+            background-color: #FFFFFF;
+            color: #FFFFFF  ;
+        }
+    }
+    #image{
+        margin:auto;width: 60%;
+    }
+
+    #content{
+        margin:auto;width: 60%;
+    }
+    #msg{
+        padding-top: 10px;
+        font-family: 'GT Eesti Pro Text';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        // line-height: 28px;
+        text-align: center;
+    }
+    #buttonDiv{
+        margin:auto;width: 28%;
+
+        #btn{
+            background-color: #F22D61;border-radius: 4px;color: #FFFFFF;
+        }
+    }
+}

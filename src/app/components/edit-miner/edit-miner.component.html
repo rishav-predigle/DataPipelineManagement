@@ -1,0 +1,74 @@
+<div style="width: 100%; display: flex;">
+    <div >Home</div>
+    <div style="width: 70%;  margin-left:auto;">
+        <app-search  (displayChanged)="check($event)"> </app-search>
+    </div>
+</div>
+<div *ngIf="toDisplay">
+    <div  style="display: flex;margin: 5px;">
+        <div><h2 style="font-family: 'GT Eesti Pro Text';font-style: normal;font-weight: 500;font-size: 30px;line-height: 30px;">Miner details</h2></div>
+        <div style="margin-left:auto;">
+            <!-- <span style="margin-right: 10px;">Type</span> -->
+            <button class="button" routerLink="/createMiner" >+ Create miner</button>     
+        </div>
+    </div>
+    <div style="margin-bottom:20px;margin-top:0px">
+        <mat-divider></mat-divider>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="padding: 20px" *ngIf="toDisplay">
+    <form  [formGroup]="editminerForm"  (ngSubmit)="updateMiner()">
+    <div>
+            <p>Miner</p>
+            <mat-form-field  style="width: 40%;" appearance="outline">
+                <mat-label>Enter miner name</mat-label>
+                <input  matInput formControlName="name" name="name"  type="text" placeholder="Enter miner name">
+            </mat-form-field>
+            <div *ngIf="name && name.invalid && name.touched" style="color: red;">Miner name is required</div>
+    </div>
+    <div>
+        <p>Description </p>
+        <mat-form-field  style="width: 40%;" appearance="outline">
+            <mat-label>Enter miner description</mat-label>
+            <textarea matInput  formControlName="description" name="description"  placeholder="Enter miner description"></textarea>
+            <div *ngIf="description && description.invalid && description.touched" style="color: red;">Description  is required</div>
+
+        </mat-form-field>
+
+    </div>
+    <div>
+        <p>Path to Miner Module</p>
+        <mat-form-field  style="width: 40%;" appearance="outline">
+            <mat-label>Miner.py</mat-label>
+            <input matInput  formControlName="module_name" name="module_name" type="text"  placeholder="Miner module">
+        </mat-form-field>
+        <div *ngIf="module_name && module_name.invalid && module_name.touched" style="color: red;">Module name is required</div>
+
+    </div>
+    <div>
+        <p>Name of miner class</p>
+        <mat-form-field  style="width: 40%;" appearance="outline">
+            <mat-label>Miner class</mat-label>
+            <input matInput  formControlName="class_name" type="text" name="class_name"  placeholder="Miner class">
+        </mat-form-field>
+        <div *ngIf="class_name && class_name.invalid && class_name.touched" style="color: red;">error</div>
+    </div>
+    <div style="width:1%;margin:0 auto"><button [disabled]="editminerForm.invalid" mat-raised-button color="accent">Class name is required</button></div> 
+
+    </form>
+
+</div>
+
+
