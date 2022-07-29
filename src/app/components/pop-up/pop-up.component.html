@@ -1,0 +1,17 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
+<div class="popup">
+    <div id="cross">
+        <button id="crossbtn" mat-button mat-dialog-close ><img id="miner-icon" src="assets/miner/cross.svg"> </button>
+    </div>
+    <div id="image" >
+        <img id="miner-icon" src="assets/miner/create_success.svg"> 
+    </div>
+    <div id="content" >
+        <p id="msg">{{message}}</p>
+    </div>
+    <div id="buttonDiv" >
+        <button id="btn"  mat-button (click)="closeDialog()">Done</button>
+    </div>
+</div>
+
+

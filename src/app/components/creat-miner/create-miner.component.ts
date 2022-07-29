@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MinersDataService } from 'src/app/services/miner/miners-data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 @Component({
   selector: 'app-create-miner',
   templateUrl: './create-miner.component.html',
   styleUrls: ['./create-miner.component.scss']
 })
 export class CreateMinerComponent implements OnInit {
-  show1:boolean=false
-  show2:boolean=false
-  constructor(private minerData:MinersDataService) { }
+  constructor(private minerData:MinersDataService,private dialogref: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -18,8 +18,21 @@ export class CreateMinerComponent implements OnInit {
     data['create_id']=0
     console.log(data)
     this.minerData.saveMiner(data).subscribe({
-      next:(data)=>{this.show1=true},
+      next:(data)=>{
+        console.log(data)
+        this.openDialog("Miner is created succesfully","miner")
+    },
       error:(error)=>{console.warn(error)}
     })
+  }
+
+  
+  openDialog(message:any,rout:any){
+    this.dialogref.open(PopUpComponent,{
+      data:{
+        msg:message,
+        route:rout
+      }
+    });
   }
 }

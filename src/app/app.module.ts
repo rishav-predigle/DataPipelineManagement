@@ -27,8 +27,13 @@ import { MatInputModule } from '@angular/material/input';
 import { SearchComponent } from './components/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateMinerComponent } from './components/creat-miner/create-miner.component';
-import {FormsModule} from '@angular/forms'
-
+import {FormsModule} from '@angular/forms';
+import { EditMinerComponent } from './components/edit-miner/edit-miner.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { ViewMinerComponent } from './components/view-miner/view-miner.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PopUpComponent } from './components/pop-up/pop-up.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +44,11 @@ import {FormsModule} from '@angular/forms'
     ShowBotComponent,
     CreateBotComponent,
     SearchComponent,
-    CreateMinerComponent
+    CreateMinerComponent,
+    EditMinerComponent,
+    ViewMinerComponent,
+    PopUpComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +69,9 @@ import {FormsModule} from '@angular/forms'
     MatSelectModule,
     MatInputModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule
 
     
   ],
