@@ -11,6 +11,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
   styleUrls: ['./top-bar-data-stage.component.scss']
 })
 export class TopBarDataStageComponent implements OnInit {
+  heading:any
   identifier:any
   toShow=true
   showSearch=false
@@ -20,19 +21,23 @@ export class TopBarDataStageComponent implements OnInit {
             if(val.url==='/dataStage'){
               this.showSearch=true
               this.toShow=false
+              this.heading="All DataStage"
             }
             if((val.url).startsWith('/viewDataStage')){
               this.identifier=this.activatedRoute.snapshot.params['identifier']
               this.toShow=true
               this.showSearch=false
+              this.heading="DataStage details"
+
             }
             if((val.url).startsWith('/editStage')){
+              this.heading="DataStage details"
               this.identifier=this.activatedRoute.snapshot.params['identifier']
               this.toShow=false
               this.showSearch=false
             }
             if((val.url).startsWith('/createDataStage')){
-              console.log(" createDataStage")
+              this.heading="DataStage details"
               this.toShow=false
               this.showSearch=false
 
