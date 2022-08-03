@@ -1,8 +1,10 @@
 <div>
     <app-top-bar-data-stage></app-top-bar-data-stage>
 </div>
+
+
 <div style="padding: 20px" >
-    <form  [formGroup]="editStageForm" (ngSubmit)="updateStage()">
+    <form  [formGroup]="createStageForm" (ngSubmit)="stageSubmitForm()">
     <div>
             <p>Data Stage Name</p>
             <mat-form-field  style="width: 40%;" appearance="outline">
@@ -20,10 +22,9 @@
         </mat-form-field>
         <div *ngIf="description && description.invalid && description.touched" style="color: red;">Description  is required</div>
 
-        
     </div>
     
-    <div style="width: 20%;"><button [disabled]="editStageForm.invalid" mat-raised-button color="accent">Update</button></div> 
+    <div style="width: 20%;"><button [disabled]="createStageForm.invalid" mat-raised-button color="accent">Create</button></div> 
 
     
     </form>

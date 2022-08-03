@@ -14,9 +14,9 @@ export class EditMinerComponent implements OnInit {
 
   editminerForm= new FormGroup({
     name : new FormControl('',[Validators.required]),
-    description : new FormControl(''),
-    module_name : new FormControl(''),
-    class_name : new FormControl('')
+    description : new FormControl('',[Validators.required]),
+    module_name : new FormControl('',[Validators.required]),
+    class_name : new FormControl('',[Validators.required])
   })
 
   get name(){ return this.editminerForm.get('name')}

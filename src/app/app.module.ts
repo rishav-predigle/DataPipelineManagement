@@ -41,7 +41,8 @@ import { EditParamComponent } from './components/edit-param/edit-param.component
 import { DataStageComponent } from './components/data-stage/data-stage.component';
 import { ViewStageComponent } from './components/view-stage/view-stage.component';
 import { TopBarDataStageComponent } from './components/top-bar-data-stage/top-bar-data-stage.component';
-import { EditStageComponent } from './components/edit-stage/edit-stage.component'
+import { EditStageComponent } from './components/edit-stage/edit-stage.component';
+import { CreateDataStageComponent } from './components/create-data-stage/create-data-stage.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +65,8 @@ import { EditStageComponent } from './components/edit-stage/edit-stage.component
     DataStageComponent,
     ViewStageComponent,
     TopBarDataStageComponent,
-    EditStageComponent
+    EditStageComponent,
+    CreateDataStageComponent
   ],
   imports: [
     BrowserModule,

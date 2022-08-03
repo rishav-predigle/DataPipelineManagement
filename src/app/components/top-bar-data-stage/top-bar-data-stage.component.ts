@@ -28,9 +28,14 @@ export class TopBarDataStageComponent implements OnInit {
             }
             if((val.url).startsWith('/editStage')){
               this.identifier=this.activatedRoute.snapshot.params['identifier']
-              console.log("iden",this.identifier)
               this.toShow=false
               this.showSearch=false
+            }
+            if((val.url).startsWith('/createDataStage')){
+              console.log(" createDataStage")
+              this.toShow=false
+              this.showSearch=false
+
             }  
           }
         });

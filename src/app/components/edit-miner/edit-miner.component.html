@@ -43,9 +43,9 @@
         <mat-form-field  style="width: 40%;" appearance="outline">
             <mat-label>Enter miner description</mat-label>
             <textarea matInput  formControlName="description" name="description"  placeholder="Enter miner description"></textarea>
-            <div *ngIf="description && description.invalid && description.touched" style="color: red;">Description  is required</div>
-
         </mat-form-field>
+        <div *ngIf="description && description.invalid && description.touched" style="color: red;">Description  is required</div>
+
 
     </div>
     <div>

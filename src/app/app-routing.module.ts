@@ -12,6 +12,7 @@ import { EditParamComponent } from './components/edit-param/edit-param.component
 import { DataStageComponent } from './components/data-stage/data-stage.component';
 import { ViewStageComponent } from './components/view-stage/view-stage.component';
 import { EditStageComponent } from './components/edit-stage/edit-stage.component';
+import { CreateDataStageComponent } from './components/create-data-stage/create-data-stage.component';
 
 
 const routes : Routes = [{
@@ -51,6 +52,9 @@ const routes : Routes = [{
   {
     path:'editStage/:identifier',
     component:EditStageComponent  
+  },{
+    path:'createDataStage',
+    component:CreateDataStageComponent  
   }
 
   

@@ -1,5 +1,5 @@
 <div class="top" >
-    <div id="searchDiv">
+    <div id="searchDiv" *ngIf="showSearch">
         <app-search > </app-search>
     </div>
 </div>
@@ -11,7 +11,7 @@
                 <img id="miner-icon" src="assets/miner/edit.svg">
             </button>
             <span *ngIf="toShow" style="margin-right: 10px;"><button class="button"  style="width: 50px;background-color: #FFFFFF;" (click)="delStage()" ><img id="miner-icon" src="assets/miner/delete.svg">Delete</button></span> 
-            <button class="button" routerLink="/createParameter" >Create DataStage</button>     
+            <button class="button" routerLink="/createDataStage" >Create DataStage</button>     
         </div>
     </div>
     <div id="line" >

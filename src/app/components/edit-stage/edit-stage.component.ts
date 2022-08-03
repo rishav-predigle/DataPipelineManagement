@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup,Validator, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { StageService } from 'src/app/services/dataStage/stage.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-edit-stage',
@@ -14,9 +13,13 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 export class EditStageComponent implements OnInit {
   identifier:any
   editStageForm = new FormGroup({
-    name : new FormControl(''),
-    description : new FormControl(''),
+    name : new FormControl('',[Validators.required]),
+    description : new FormControl('',[Validators.required]),
   })
+
+  get name(){ return this.editStageForm.get('name')}
+  get description(){ return this.editStageForm.get('description')}
+
   constructor( private router : ActivatedRoute,private stageData:StageService,private dialogref: MatDialog) { }
   ngOnInit(): void {
     console.log(this.router.snapshot.params['identifier'])
@@ -25,7 +28,6 @@ export class EditStageComponent implements OnInit {
     this.stageData.stage(this.router.snapshot.params['identifier']).subscribe(
       {
         next:(data:any)=>{
-          console.log("data -> ",data)
           this.setDefaultValues(data['datastage']['name'],data['datastage']['description'])
         },
         error:(error)=>{console.warn(error)}
