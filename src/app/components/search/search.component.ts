@@ -15,7 +15,10 @@ export class SearchComponent implements OnInit {
     minerData.miners().subscribe( (data:any)=>{
       this.miners=data["dataminers"]
     })
+
+    
   }
+
 
   ngOnInit(): void {
   }

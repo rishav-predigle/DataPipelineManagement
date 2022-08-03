@@ -1,0 +1,56 @@
+<div class="top" >
+    <div id="searchDiv">
+        <app-search > </app-search>
+    </div>
+</div>
+<div class="parameterHeading" *ngIf="toDisplay">
+    <div id="options">
+        <div><h2 id="nameHeading">All Parameter</h2></div>
+        <div id="btnOption">
+            <button class="button" routerLink="/createMiner" >Create Parameter</button>     
+        </div>
+    </div>
+    <div id="line" >
+        <mat-divider></mat-divider>
+    </div>
+</div>
+
+
+
+<div style="padding: 20px">
+    <form #paramForm="ngForm" (ngSubmit)="paramSubmitForm(paramForm.value)">
+    <div>
+            <p>Parameter Name</p>
+            <mat-form-field  style="width: 40%;" appearance="outline">
+                <mat-label>Enter miner name</mat-label>
+                <input matInput ngModel name="name" required #name="ngModel" type="text" placeholder="Enter Parameter Name">
+            </mat-form-field>
+            <div *ngIf="name.invalid && name.touched" style="color: red;">Parameter Name is required.</div>
+    </div>
+    <div>
+        <p>Param key </p>
+        <mat-form-field  style="width: 40%;" appearance="outline">
+            <mat-label>Enter Param Key</mat-label>
+            <textarea matInput required ngModel name="param_key" #param_key="ngModel" placeholder="Enter Param key"></textarea>
+        </mat-form-field>
+        <div *ngIf="param_key.invalid && param_key.touched" style="color: red;">Param key is required.</div>
+
+    </div>
+    <div>
+        <p>Param Value</p>
+        <mat-form-field  style="width: 40%;" appearance="outline">
+            <mat-label>Param Value</mat-label>
+            <input matInput required ngModel type="text" name="param_value" #param_value="ngModel" placeholder="Param Value">
+        </mat-form-field>
+        <div *ngIf="param_value.invalid && param_value.touched" style="color: red;">Param Value is required.</div>
+    </div>
+    <div style="width: 20%;">
+        <button  mat-stroked-button  style="background-color: #eb4d4d ;color: white;border: 1px solid #999999;;margin-left:10px;margin-top: 38px; height: 48px;font-family: 'GT Eesti Pro Text';font-style: normal;">+ Create miner</button>
+    </div>
+    </form>
+
+</div>
+
+
+
+

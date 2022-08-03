@@ -1,0 +1,26 @@
+<div>
+    <app-top-bar-data-stage></app-top-bar-data-stage>
+</div>
+<div style="padding: 20px" >
+    <form  [formGroup]="editStageForm" (ngSubmit)="updateStage()">
+    <div>
+            <p>Data Stage Name</p>
+            <mat-form-field  style="width: 40%;" appearance="outline">
+                <mat-label>Enter Stage name</mat-label>
+                <input  matInput formControlName="name" name="name"  type="text" placeholder="Enter Data Stage name  ">
+            </mat-form-field>
+    </div>
+    <div>
+        <p>Description</p>
+        <mat-form-field  style="width: 40%;" appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput  formControlName="description" name="description" type="text"  placeholder="Description  ">
+        </mat-form-field>
+    </div>
+    
+    <div style="width:1%;margin:0 auto"><button [disabled]="editStageForm.invalid" mat-raised-button color="accent">Update</button></div> 
+
+    
+    </form>
+
+</div> 

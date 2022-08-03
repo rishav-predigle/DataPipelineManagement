@@ -50,7 +50,6 @@ export class EditMinerComponent implements OnInit {
       error:(error)=>{console.warn(error)}
     })
   }
-
   openDialog(message:any,rout:any){
     this.dialogref.open(PopUpComponent,{
       data:{
@@ -59,7 +58,6 @@ export class EditMinerComponent implements OnInit {
       }
     });
   }
-
   check(display:boolean){
     this.toDisplay=display
   }

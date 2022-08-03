@@ -33,7 +33,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ViewMinerComponent } from './components/view-miner/view-miner.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
-import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component'
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { ParameterComponent } from './components/parameter/parameter.component';
+import { ViewParamComponent } from './components/view-param/view-param.component';
+import { CreateParamComponent } from './components/create-param/create-param.component';
+import { EditParamComponent } from './components/edit-param/edit-param.component';
+import { DataStageComponent } from './components/data-stage/data-stage.component';
+import { ViewStageComponent } from './components/view-stage/view-stage.component';
+import { TopBarDataStageComponent } from './components/top-bar-data-stage/top-bar-data-stage.component';
+import { EditStageComponent } from './components/edit-stage/edit-stage.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +56,15 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     EditMinerComponent,
     ViewMinerComponent,
     PopUpComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ParameterComponent,
+    ViewParamComponent,
+    CreateParamComponent,
+    EditParamComponent,
+    DataStageComponent,
+    ViewStageComponent,
+    TopBarDataStageComponent,
+    EditStageComponent
   ],
   imports: [
     BrowserModule,

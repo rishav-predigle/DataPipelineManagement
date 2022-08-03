@@ -1,0 +1,58 @@
+<div class="top" >
+    <div id="searchDiv">
+        <app-search > </app-search>
+    </div>
+</div>
+<div class="parameterHeading" *ngIf="toDisplay">
+    <div id="options">
+        <div><h2 id="nameHeading">All Parameter</h2></div>
+        <div id="btnOption">
+            <button class="button"  style="width: 50px;color:black; background-color: #FFFFFF;"routerLink="/editParam/{{identifier}}" >
+                <img id="miner-icon" src="assets/miner/edit.svg">
+            </button>
+            <span style="margin-right: 10px;"><button class="button"  style="width: 50px;background-color: #FFFFFF;" (click)="delParam()" ><img id="miner-icon" src="assets/miner/delete.svg">Delete</button></span> 
+            <button class="button" routerLink="/createParameter" >Create Parameter</button>     
+        </div>
+    </div>
+    <div id="line" >
+        <mat-divider></mat-divider>
+    </div>
+</div>
+
+
+
+
+
+
+<div style="padding: 20px" *ngIf="toDisplay">
+    <form  [formGroup]="viewParamForm" >
+    <div>
+            <p>Parameter Name</p>
+            <mat-form-field  style="width: 40%;" appearance="outline">
+                <mat-label>Enter Parameter name</mat-label>
+                <input  matInput formControlName="Parameter" name="Parameter"  type="text" placeholder="Enter Parameter name  ">
+            </mat-form-field>
+    </div>
+    <div>
+        <p>Param key</p>
+        <mat-form-field  style="width: 40%;" appearance="outline">
+            <mat-label>Param key</mat-label>
+            <input matInput  formControlName="param_key" name="param_key" type="text"  placeholder="Param key  ">
+        </mat-form-field>
+    </div>
+    <div>
+        <p>Param Value  </p>
+        <mat-form-field  style="width: 40%;" appearance="outline">
+            <mat-label>Param Value</mat-label>
+            <input matInput  formControlName="param_value" type="text" name="param_value"  placeholder="Param Value  ">
+        </mat-form-field>
+    </div>
+    
+    </form>
+
+</div> 
+
+
+
+
+
