@@ -13,6 +13,8 @@ import { DataStageComponent } from './components/data-stage/data-stage.component
 import { ViewStageComponent } from './components/view-stage/view-stage.component';
 import { EditStageComponent } from './components/edit-stage/edit-stage.component';
 import { CreateDataStageComponent } from './components/create-data-stage/create-data-stage.component';
+import { DataSourceComponent } from './components/data-source/data-source.component';
+import { CreateDataSourceComponent } from './components/data-source/create-data-source/create-data-source.component';
 
 
 const routes : Routes = [{
@@ -55,6 +57,15 @@ const routes : Routes = [{
   },{
     path:'createDataStage',
     component:CreateDataStageComponent  
+  },{
+    path:'dataSource',
+    component:DataSourceComponent  
+  },{
+    path:'createDataSource',
+    component:CreateDataSourceComponent  
+  },{
+    path:'dataSource/:identifier',
+    component:CreateDataSourceComponent  
   }
 
   

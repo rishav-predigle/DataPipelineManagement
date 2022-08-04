@@ -22,7 +22,6 @@ export class EditStageComponent implements OnInit {
 
   constructor( private router : ActivatedRoute,private stageData:StageService,private dialogref: MatDialog) { }
   ngOnInit(): void {
-    console.log(this.router.snapshot.params['identifier'])
     
     this.identifier=this.router.snapshot.params['identifier']
     this.stageData.stage(this.router.snapshot.params['identifier']).subscribe(

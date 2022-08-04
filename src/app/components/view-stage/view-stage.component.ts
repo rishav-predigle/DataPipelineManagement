@@ -32,10 +32,8 @@ export class ViewStageComponent implements OnInit {
     )
   }
   setDefaultValues(name:any,desc:any){
-    console.log("name",name)
     this.viewStageForm.patchValue({name:name, description:desc});
   }
  
-  delStage(){}
 
 }

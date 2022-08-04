@@ -42,7 +42,10 @@ import { DataStageComponent } from './components/data-stage/data-stage.component
 import { ViewStageComponent } from './components/view-stage/view-stage.component';
 import { TopBarDataStageComponent } from './components/top-bar-data-stage/top-bar-data-stage.component';
 import { EditStageComponent } from './components/edit-stage/edit-stage.component';
-import { CreateDataStageComponent } from './components/create-data-stage/create-data-stage.component'
+import { CreateDataStageComponent } from './components/create-data-stage/create-data-stage.component';
+import { DataSourceComponent } from './components/data-source/data-source.component';
+import { TopBarDataSourceComponent } from './components/top-bar-data-source/top-bar-data-source.component';
+import { CreateDataSourceComponent } from './components/data-source/create-data-source/create-data-source.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +69,10 @@ import { CreateDataStageComponent } from './components/create-data-stage/create-
     ViewStageComponent,
     TopBarDataStageComponent,
     EditStageComponent,
-    CreateDataStageComponent
+    CreateDataStageComponent,
+    DataSourceComponent,
+    TopBarDataSourceComponent,
+    CreateDataSourceComponent
   ],
   imports: [
     BrowserModule,
