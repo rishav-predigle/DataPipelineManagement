@@ -1,0 +1,27 @@
+<div><app-top-bar-data-stage (receiveFlag)="receiveFlag($event)"></app-top-bar-data-stage></div>
+
+<div style="padding: 20px">
+    <form  [formGroup]="stageForm" (ngSubmit)="stageSubmitForm()">
+        <div>
+                <p>Data stage Name</p>
+                <mat-form-field  style="width: 40%;" appearance="outline">
+                    <mat-label>Enter Data stage name</mat-label>
+                    <input  matInput formControlName="name" type="text" placeholder="Enter Data stage name  ">
+                </mat-form-field>
+                <mat-error *ngIf=" stageForm.get('name')?.touched && !stageForm.get('name')?.valid && !stageForm.get('name')?.disabled">Name is required</mat-error>
+        </div>
+        <div>
+            <p>Description </p>
+            <mat-form-field  style="width: 40%;" appearance="outline">
+                <mat-label>Description </mat-label>
+                <input matInput  formControlName="description" type="text" name="description"  placeholder="description"   >
+            </mat-form-field>
+            <mat-error *ngIf=" stageForm.get('description')?.touched && !stageForm.get('description')?.valid && !stageForm.get('description')?.disabled">Description is required</mat-error>
+
+        </div>
+        <div *ngIf="showCreateButton" style="width: 20%;"><button [disabled]="stageForm.invalid" mat-raised-button color="accent">Create</button></div> 
+        <div *ngIf="showUpdateButton" style="width: 20%;"><button [disabled]="stageForm.invalid" mat-raised-button color="accent">Update</button></div> 
+
+    </form>
+
+</div> 

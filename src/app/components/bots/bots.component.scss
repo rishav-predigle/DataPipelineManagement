@@ -54,4 +54,36 @@
   
   
 
-  
+   /* Remove extra left and right margins, due to padding in columns */
+ .row {
+  margin: 0 -5px;
+
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 33%;
+    padding: 0 10px;
+    margin-top:15px ;
+
+     /* Style the counter cards */
+    .card {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;    padding: 16px;
+      text-align: center;
+      background-color: #FFFFFF;
+    }
+    /* Responsive columns - one column layout (vertical) on small screens */
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+  }
+   /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

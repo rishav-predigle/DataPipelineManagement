@@ -1,0 +1,20 @@
+<div class="top" >
+    <div id="searchDiv" *ngIf="showSearch">
+        <app-search > </app-search>
+    </div>
+</div>
+<div class="Heading" >
+    <div id="options" >
+        <div><h2 id="nameHeading">{{heading}}</h2></div>
+        <div id="btnOption">
+            <button *ngIf="toShow" class="button"  style="width: 50px;color:black; background-color: #FFFFFF;" (click)="sendFlag()">
+                <img id="miner-icon" src="assets/miner/edit.svg">
+            </button>
+            <span *ngIf="toShow" style="margin-right: 10px;"><button class="button"  style="width: 50px;background-color: #FFFFFF;" (click)="delDataSet()" ><img id="miner-icon" src="assets/miner/delete.svg">Delete</button></span> 
+            <button class="button" routerLink="/createDataSet" >Create DataSet</button>     
+        </div>
+    </div>
+    <div id="line" >
+        <mat-divider></mat-divider>
+    </div>
+</div>

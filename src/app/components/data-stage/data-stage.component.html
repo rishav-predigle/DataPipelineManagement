@@ -1,0 +1,38 @@
+<div>
+    <div><app-top-bar-data-stage></app-top-bar-data-stage></div>
+</div>
+<div  class="container1" *ngIf="!dataStages">
+    <div class="row" >
+        <div class="column" >
+            <div class="cards" >
+                <div> 
+                    <img  id="miner-icon" src="assets/parameter/blank.svg"> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="msgDiv">
+        <div>
+            <p id="firstMsg" >Datastage are not available</p> 
+            <p id="secondMsg" >Please create</p>
+        </div>
+        <div id="btnDiv" ><button class="button"  routerLink="/createDataStage" >Create Datastage</button></div>
+    </div>
+</div>
+
+
+<div class="container2"  *ngIf="dataStages">
+    <div class="rowParam" >
+        <div class="columnParam" *ngFor="let data of dataStages" >
+        <div class="cardParam" style="padding: 5px;" >
+                <h2 id="heading" >{{data.name}}</h2>
+                <div id="content" ><p >{{data.description}}</p></div>
+                <mat-divider></mat-divider> 
+                <div id="btnDiv" >
+                    <div  >
+                        <button  mat-raised-button color="accent" routerLink="/dataStage/{{data.identifier}}">Details</button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+</div>

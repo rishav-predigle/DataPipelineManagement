@@ -1,56 +1,43 @@
-<div style="width: 100%; display: flex;">
-    <div >Home</div>
-    <div style="width: 70%;  margin-left:auto;">
-        <app-search  (displayChanged)="check($event)"> </app-search>
-        <!-- <app-search (searchTextChanged)="onSearchTextEntered($event)"> </app-search> -->
-    </div>
-</div>
-<div *ngIf="toDisplay">
-    <div  style="display: flex;margin: 5px;">
-        <div><h2 style="font-family: 'GT Eesti Pro Text';font-style: normal;font-weight: 500;font-size: 30px;line-height: 30px;">Miner details</h2></div>
-        <div style="margin-left:auto;">
-            <!-- <span style="margin-right: 10px;">Type</span> -->
-            <button class="button" routerLink="/createMiner" >+ Create miner</button>     
-        </div>
-    </div>
-    <div style="margin-bottom:20px;margin-top:0px">
-        <mat-divider></mat-divider>
-    </div>
-</div>
+<div><app-top-bar-miner ></app-top-bar-miner></div>
 
 
 
 
-<div style="padding: 20px" *ngIf="!miners && toDisplay">
+
+
+
+
+<div  class="container1" *ngIf="!miners ">
     <div class="row" >
         <div class="column" >
-        <div class="card" style="padding: 5px;" >
-            <h1 style="margin: 0 auto;;text-align: left;padding-top: 60px;">Illustration</h1>  
-        </div>
+            <div class="cards" >
+                <div> <img  id="miner-icon" src="assets/parameter/blank.svg"> 
+                </div>
+                <!-- <h1 id="heading">Illustration</h1>   -->
+            </div>
         </div>
     </div>
-    <div style="width: 20%;margin: 0 auto;">
+    <div class="msgDiv">
         <div>
-            <p style="text-align: center; margin-top: 15px;">Miner are not available</p> 
-            <p style="text-align: center;line-height: 0%;">Please create</p>
+            <p id="firstMsg" >Miner are not available</p> 
+            <p id="secondMsg" >Please create</p>
         </div>
-        <div style="text-align: center;margin-top: 20px;  "><button class="button"  >+ Create miner</button></div>
+        <div id="btnDiv" ><button class="button"  routerLink="/createMiner" >Create Miner</button></div>
     </div>
 </div>
-<div style="padding: 20px" *ngIf="miners && toDisplay">
-    <div class="rowMiner" >
-        <div class="columnMiner" *ngFor="let miner of miners" >
-        <div class="cardMiner" style="padding: 5px;" >
-                <div style="display: flex;">
-                    <!-- <div style="margin: 0 auto;">value 2.5</div> -->
-                </div>
-                <h2 style="margin-bottom: 1px;text-align: left;padding-left: 10px;">{{miner.name}}</h2>
-                <div style="    height: 30px;width: 95%;white-space: nowrap;overflow: hidden;text-overflow: '...'; "><p style="font: GT Eesti Pro Text ;line-height: 25.4px;text-align: justify;padding-left:10px;padding-right:10px">{{miner.description}}</p></div>
+
+<div class="container2"  *ngIf="miners">
+    <div class="rowParam" >
+        <div class="columnParam" *ngFor="let miner of miners" >
+        <div class="cardParam" style="padding: 5px;" >
+                <h2 id="heading" >{{miner.name}}</h2>
+                <div id="content" ><p >{{miner.description}}</p></div>
                 <mat-divider></mat-divider> 
-                <div style="width:100%;margin-top: 5px;display: flex;">
-                <div  style="width: 100%;"><button style=" margin-left: auto; display: flex; justify-content: flex-end" mat-raised-button color="accent" routerLink="/viewMiner/{{miner.identifier}}">Details</button></div> 
+                <div id="btnDiv" >
+                    <div  >
+                        <button  mat-raised-button color="accent" routerLink="/miner/{{miner.identifier}}">Details</button>
+                    </div> 
                 </div>
             </div>
         </div>
 </div>
-

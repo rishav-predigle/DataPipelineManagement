@@ -1,0 +1,29 @@
+<div><app-top-bar-entity (receiveFlag)="receiveFlag($event)"></app-top-bar-entity></div>
+
+
+
+<div style="padding: 20px">
+    <form  [formGroup]="entityForm" (ngSubmit)="entitySubmitForm()">
+        <div>
+                <p>Data Entity Name</p>
+                <mat-form-field  style="width: 40%;" appearance="outline">
+                    <mat-label>Enter Data Entity name</mat-label>
+                    <input  matInput formControlName="name" type="text" placeholder="Enter Data Entity name  ">
+                </mat-form-field>
+                <mat-error *ngIf=" entityForm.get('name')?.touched && !entityForm.get('name')?.valid && !entityForm.get('name')?.disabled">Name is required</mat-error>
+        </div>
+        <div>
+            <p>Type </p>
+            <mat-form-field  style="width: 40%;" appearance="outline">
+                <mat-label>Type </mat-label>
+                <input matInput  formControlName="type" type="text" name="type"  placeholder="type"   >
+            </mat-form-field>
+            <mat-error *ngIf=" entityForm.get('type')?.touched && !entityForm.get('type')?.valid && !entityForm.get('type')?.disabled">Type is required</mat-error>
+
+        </div>
+        <div *ngIf="showCreateButton" style="width: 20%;"><button [disabled]="entityForm.invalid" mat-raised-button color="accent">Create</button></div> 
+        <div *ngIf="showUpdateButton" style="width: 20%;"><button [disabled]="entityForm.invalid" mat-raised-button color="accent">Update</button></div> 
+
+    </form>
+
+</div> 

@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { CreateBotComponent } from '../create-bot/create-bot.component';
-import { ShowBotComponent } from '../show-bot/show-bot.component';
+import { BotsDataService } from 'src/app/services/bots-data.service';
+
 
 @Component({
   selector: 'app-bots',
@@ -8,17 +8,18 @@ import { ShowBotComponent } from '../show-bot/show-bot.component';
   styleUrls: ['./bots.component.scss']
 })
 export class BotsComponent implements OnInit {
-  content:any
-  toDisplay = true;
-  constructor() { }
+  bots:any
+  constructor(private botData:BotsDataService ) { 
+    botData.bots().subscribe( (data:any)=>{
+      console.warn(data)
+      this.bots=data["databots"]
+
+    })
+  }
  
   ngOnInit(): void {
-    this.content=ShowBotComponent
   }
 
-  loadCreatebot(){
-    this.content=CreateBotComponent
-    this.toDisplay = false;
-  }
+  
 
 }

@@ -1,0 +1,41 @@
+<div>
+    <app-top-bar-data-source    (receiveFlag)="receiveFlag($event)"></app-top-bar-data-source>
+</div>
+
+
+<div style="padding: 20px">
+    <form  [formGroup]="SourceForm" (ngSubmit)="sourceSubmitForm()">
+        <div>
+                <p>Data Source Name</p>
+                <mat-form-field  style="width: 40%;" appearance="outline">
+                    <mat-label>Enter DataSource name</mat-label>
+                    <input  matInput formControlName="name" type="text" placeholder="Enter DataSource name  ">
+                </mat-form-field>
+                <mat-error *ngIf=" SourceForm.get('name')?.touched && !SourceForm.get('name')?.valid && !SourceForm.get('name')?.disabled">Name is required</mat-error>
+        </div>
+        <div>
+            <p>Description </p>
+            <mat-form-field  style="width: 40%;" appearance="outline">
+                <mat-label>Description </mat-label>
+                <input matInput  formControlName="description" type="text" name="description"  placeholder="Description   ">
+            </mat-form-field>
+            <mat-error *ngIf=" SourceForm.get('description')?.touched && !SourceForm.get('description')?.valid && !SourceForm.get('description')?.disabled">Description is required</mat-error>
+
+
+        </div>
+        <div>
+            <p>Address </p>
+            <mat-form-field  style="width: 40%;" appearance="outline">
+                <mat-label>Address </mat-label>
+                <input matInput  formControlName="address" type="text" name="address"  placeholder="address   ">
+            </mat-form-field>
+            <mat-error *ngIf="SourceForm.get('address')?.touched && !SourceForm.get('address')?.valid   && !SourceForm.get('address')?.disabled ">Address is required</mat-error>
+
+
+        </div>
+        <div *ngIf="showCreateButton" style="width: 20%;"><button [disabled]="SourceForm.invalid" mat-raised-button color="accent">Create</button></div> 
+        <div *ngIf="showUpdateButton" style="width: 20%;"><button [disabled]="SourceForm.invalid" mat-raised-button color="accent">Update</button></div> 
+
+    </form>
+
+</div> 
