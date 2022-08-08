@@ -49,10 +49,7 @@ export class TopBarDataSourceComponent implements OnInit {
   }
 
   sendFlag(){
-    console.log("edit click")
     this.receiveFlag.emit(true)
-    console.log("-> ",this.identifier)
-    // this.router.navigate([`/dataSource/${this.identifier}`]); 
   }
   deleteSource(){
     this.sourceData.deleteSource(this.activatedRoute.snapshot.params['identifier']).subscribe({

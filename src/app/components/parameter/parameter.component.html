@@ -1,25 +1,13 @@
-<div class="top" >
-    <div id="searchDiv">
-        <app-search > </app-search>
-    </div>
-</div>
-<div class="parameterHeading" *ngIf="toDisplay">
-    <div id="options">
-        <div><h2 id="nameHeading">All Parameter</h2></div>
-        <div id="btnOption">
-            <button class="button" routerLink="/createParameter" >Create Parameter</button>     
-        </div>
-    </div>
-    <div id="line" >
-        <mat-divider></mat-divider>
-    </div>
+<div>
+    <app-top-bar-parameter></app-top-bar-parameter>
+
 </div>
 
 
 
 
 
-<div  class="container1" *ngIf="!params && toDisplay">
+<div  class="container1" *ngIf="!params ">
     <div class="row" >
         <div class="column" >
             <div class="cards" >
@@ -38,7 +26,7 @@
     </div>
 </div>
 
-<div class="container2"  *ngIf="params!='' && toDisplay">
+<div class="container2"  *ngIf="params">
     <div class="rowParam" >
         <div class="columnParam" *ngFor="let param of params" >
         <div class="cardParam" style="padding: 5px;" >
@@ -47,7 +35,7 @@
                 <mat-divider></mat-divider> 
                 <div id="btnDiv" >
                     <div  >
-                        <button  mat-raised-button color="accent" routerLink="/viewParameter/{{param.identifer}}">Details</button>
+                        <button  mat-raised-button color="accent" routerLink="/parameter/{{param.identifer}}">Details</button>
                     </div> 
                 </div>
             </div>

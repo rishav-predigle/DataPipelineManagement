@@ -1,7 +1,7 @@
 <div>
-    <app-top-bar-data-stage></app-top-bar-data-stage>
+    <div><app-top-bar-data-stage></app-top-bar-data-stage></div>
 </div>
-<div  class="container1" *ngIf="!dataStages && toDisplay">
+<div  class="container1" *ngIf="!dataStages">
     <div class="row" >
         <div class="column" >
             <div class="cards" >
@@ -21,7 +21,7 @@
 </div>
 
 
-<div class="container2"  *ngIf="dataStages!='' && toDisplay">
+<div class="container2"  *ngIf="dataStages">
     <div class="rowParam" >
         <div class="columnParam" *ngFor="let data of dataStages" >
         <div class="cardParam" style="padding: 5px;" >
@@ -30,7 +30,7 @@
                 <mat-divider></mat-divider> 
                 <div id="btnDiv" >
                     <div  >
-                        <button  mat-raised-button color="accent" routerLink="/viewDataStage/{{data.identifier}}">Details</button>
+                        <button  mat-raised-button color="accent" routerLink="/dataStage/{{data.identifier}}">Details</button>
                     </div> 
                 </div>
             </div>

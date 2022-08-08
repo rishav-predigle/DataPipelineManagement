@@ -1,0 +1,30 @@
+<div><app-top-bar-data-set (receiveFlag)="receiveFlag($event)"></app-top-bar-data-set></div>
+
+
+
+
+<div style="padding: 20px">
+    <form  [formGroup]="setForm" (ngSubmit)="setSubmitForm()">
+        <div>
+                <p>Data Entity Name</p>
+                <mat-form-field  style="width: 40%;" appearance="outline">
+                    <mat-label>Enter Data Entity name</mat-label>
+                    <input  matInput formControlName="name" type="text" placeholder="Enter Data Entity name  ">
+                </mat-form-field>
+                <mat-error *ngIf=" setForm.get('name')?.touched && !setForm.get('name')?.valid && !setForm.get('name')?.disabled">Name is required</mat-error>
+        </div>
+        <div>
+            <p>Description </p>
+            <mat-form-field  style="width: 40%;" appearance="outline">
+                <mat-label>Description </mat-label>
+                <input matInput  formControlName="description" type="text" name="description"  placeholder="description"   >
+            </mat-form-field>
+            <mat-error *ngIf=" setForm.get('description')?.touched && !setForm.get('description')?.valid && !setForm.get('description')?.disabled">Description is required</mat-error>
+
+        </div>
+        <div *ngIf="showCreateButton" style="width: 20%;"><button [disabled]="setForm.invalid" mat-raised-button color="accent">Create</button></div> 
+        <div *ngIf="showUpdateButton" style="width: 20%;"><button [disabled]="setForm.invalid" mat-raised-button color="accent">Update</button></div> 
+
+    </form>
+
+</div> 

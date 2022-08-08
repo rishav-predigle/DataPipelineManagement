@@ -8,8 +8,7 @@ import { StageService } from 'src/app/services/dataStage/stage.service';
 })
 export class DataStageComponent implements OnInit {
 
-  toDisplay=true
-  dataStages:any=''
+  dataStages:any
   ngOnInit(): void {
   }
   constructor( private stageData:StageService) { 

@@ -10,7 +10,8 @@ export class DataSourceComponent implements OnInit {
   dataSources:any
   constructor( private sourceData:SourceService) { 
     sourceData.allSources().subscribe({
-      next:(data:any)=>{this.dataSources=data["datasources"];},
+      next:(data:any)=>{this.dataSources=data["datasources"];
+      },
       error:(error)=>{console.warn(error)}
     })
   }

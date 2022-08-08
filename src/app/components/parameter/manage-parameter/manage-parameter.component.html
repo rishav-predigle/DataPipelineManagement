@@ -1,0 +1,35 @@
+<div><app-top-bar-parameter (receiveFlag)="receiveFlag($event)" ></app-top-bar-parameter></div>
+<div style="padding: 20px">
+    <form  [formGroup]="paramForm" (ngSubmit)="paramSubmitForm()">
+        <div>
+                <p>Data Parameter Name</p>
+                <mat-form-field  style="width: 40%;" appearance="outline">
+                    <mat-label>Enter Data Parameter name</mat-label>
+                    <input  matInput formControlName="name" type="text" placeholder="Enter Data Parameter name  ">
+                </mat-form-field>
+                <mat-error *ngIf=" paramForm.get('name')?.touched && !paramForm.get('name')?.valid && !paramForm.get('name')?.disabled">Name is required</mat-error>
+        </div>
+        <div>
+            <p>Parameter key </p>
+            <mat-form-field  style="width: 40%;" appearance="outline">
+                <mat-label>Parameter key </mat-label>
+                <input matInput  formControlName="param_key" type="text" name="param_key"  placeholder="Parameter key"   >
+            </mat-form-field>
+            <mat-error *ngIf=" paramForm.get('param_key')?.touched && !paramForm.get('param_key')?.valid && !paramForm.get('param_key')?.disabled">Param Key is required</mat-error>
+
+        </div>
+        <div>
+            <p>Parameter Value </p>
+            <mat-form-field  style="width: 40%;" appearance="outline">
+                <mat-label>Parameter Value </mat-label>
+                <input matInput  formControlName="param_value" type="text" name="param_value"  placeholder="Parameter Value"   >
+            </mat-form-field>
+            <mat-error *ngIf=" paramForm.get('param_value')?.touched && !paramForm.get('param_value')?.valid && !paramForm.get('param_value')?.disabled">Param Value is required</mat-error>
+
+        </div>
+        <div *ngIf="showCreateButton" style="width: 20%;"><button [disabled]="paramForm.invalid" mat-raised-button color="accent">Create</button></div> 
+        <div *ngIf="showUpdateButton" style="width: 20%;"><button [disabled]="paramForm.invalid" mat-raised-button color="accent">Update</button></div> 
+
+    </form>
+
+</div> 
