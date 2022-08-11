@@ -1,5 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MinersDataService } from 'src/app/services/miner/miners-data.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { NavigationEnd, Router } from '@angular/router';
+import { debounceTime, map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -7,38 +9,63 @@ import { MinersDataService } from 'src/app/services/miner/miners-data.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  // placeholder="Miner"
+  // enteredSearchValue : string ='';
+  // searchResult:any=''
+  endpoint:any
+  searchResult:any=[];
+  searchForm = new FormGroup({
+    searchInput: new FormControl('')
+  })
 
-  enteredSearchValue : string ='';
-  searchResult:any=''
-  miners:any
-  constructor(private minerData:MinersDataService ) { 
-    minerData.miners().subscribe( (data:any)=>{
-      this.miners=data["dataminers"]
-    })
+  @Input() data:any;
+  @Input() placeHolder:string='';
 
-    
+  constructor(private router: Router) {
   }
+
+  onSelect = (value:any) => {
+    let route:any
+    if(this.router.url=='/parameter')
+      route=this.data["endPoint"]+"/"+value.identifer    
+    else
+      route=this.data["endPoint"]+"/"+value.identifier    
+    this.router.navigate([route]);
+  }
+
 
 
   ngOnInit(): void {
+    this.searchForm
+      .get('searchInput')
+      ?.valueChanges.pipe(
+        debounceTime(500),
+        startWith(''),
+        map((value) => this.search(value))
+      )
+      .subscribe();
   }
+  search(searchValue:any){
+    if(this.data){
+      this.searchResult = this.data['searchData']?.filter(function (el : any) {
+        if (!searchValue){
+          return ''
+        }   
+        return el.name.toLowerCase().startsWith(searchValue.toLowerCase())
+      });
+    }else{
+      this.searchResult=''
+    }
+    
+  }
+  
+   
 
-
-
-
-  onSearchTextChanged(){
  
-    console.log(this.enteredSearchValue)
-    this.search(this.enteredSearchValue)
-  }
 
-  search(searchValue:string){
-    this.searchResult = this.miners.filter(function (el : any) {
-      if (searchValue==''){
-        return ''
-      }    
-      return el.name.toLowerCase().startsWith(searchValue.toLowerCase())
-    });
-    console.log(this.searchResult)
-  }
+
+
+
+
+  
 }

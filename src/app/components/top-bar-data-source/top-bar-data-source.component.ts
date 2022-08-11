@@ -16,9 +16,13 @@ export class TopBarDataSourceComponent implements OnInit {
   identifier:any
   toShow=true
   showSearch=false
+  searchData:any
+  data:any;
+  placeholder:string='search for DataSources...'
   @Output() receiveFlag:EventEmitter<any>=new EventEmitter()
 
   constructor(private router: Router,private sourceData: SourceService, private activatedRoute: ActivatedRoute,private dialogref: MatDialog,private dialog: MatDialog){
+    this.getSources()
     this.identifier=this.activatedRoute.snapshot.params['identifier']
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
@@ -47,7 +51,14 @@ export class TopBarDataSourceComponent implements OnInit {
     
     
   }
-
+  getSources = () => {
+    this.sourceData.allSources().subscribe( (d:any)=>{
+      this.data={
+        "searchData":d["datasources"],
+        "endPoint":"dataSource"
+      }
+    })
+  }
   sendFlag(){
     this.receiveFlag.emit(true)
   }

@@ -47,6 +47,8 @@ import { TopBarBotComponent } from './components/bots/top-bar-bot/top-bar-bot.co
 import { ManageBotComponent } from './components/bots/manage-bot/manage-bot.component';
 import { ManageMinerComponent } from './components/miner/manage-miner/manage-miner.component';
 import { TopBarMinerComponent } from './components/miner/top-bar-miner/top-bar-miner.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,7 +100,8 @@ import { TopBarMinerComponent } from './components/miner/top-bar-miner/top-bar-m
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatAutocompleteModule
 
     
   ],
