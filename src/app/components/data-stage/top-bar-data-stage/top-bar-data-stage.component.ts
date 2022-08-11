@@ -15,8 +15,12 @@ export class TopBarDataStageComponent implements OnInit {
   identifier:any
   toShow=true
   showSearch=false
+  searchData:any
+  data:any;
+  placeholder:string='search for DataStage...'
   @Output() receiveFlag:EventEmitter<any>=new EventEmitter()
   constructor(private router: Router,private stageData: StageService, private activatedRoute: ActivatedRoute,private dialogref: MatDialog,private dialog: MatDialog){
+    this.getStage()
     this.identifier=this.activatedRoute.snapshot.params['identifier']
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
@@ -40,6 +44,14 @@ export class TopBarDataStageComponent implements OnInit {
     }); 
   }
   ngOnInit(): void {
+  }
+  getStage = () => {
+    this.stageData.allStage().subscribe( (d:any)=>{
+      this.data={
+        "searchData":d["datastages"],
+        "endPoint":"dataStage"
+      }
+    })
   }
   sendFlag(){
     this.receiveFlag.emit(true)

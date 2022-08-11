@@ -15,9 +15,13 @@ export class TopBarDataSetComponent implements OnInit {
   identifier:any
   toShow=true
   showSearch=false
+  searchData:any
+  data:any;
+  placeholder:string='search for DataSets...'
   @Output() receiveFlag:EventEmitter<any>=new EventEmitter()
 
   constructor(private router: Router,private setData: SetService, private activatedRoute: ActivatedRoute,private dialogref: MatDialog,private dialog: MatDialog){
+    this.getStage()
     this.identifier=this.activatedRoute.snapshot.params['identifier']
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
@@ -41,6 +45,14 @@ export class TopBarDataSetComponent implements OnInit {
     }); 
   }
   ngOnInit(): void {
+  }
+  getStage = () => {
+    this.setData.allSet().subscribe( (d:any)=>{
+      this.data={
+        "searchData":d["datasets"],
+        "endPoint":"dataSet"
+      }
+    })
   }
   sendFlag(){
     this.receiveFlag.emit(true)

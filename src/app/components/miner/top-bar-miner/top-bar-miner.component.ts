@@ -15,9 +15,17 @@ export class TopBarMinerComponent implements OnInit {
   identifier:any
   toShow=true
   showSearch=false
+  searchData:any
+  data:any;
+  placeholder:string='search for miner'
+  // [searchData]="miners"
   @Output() receiveFlag:EventEmitter<any>=new EventEmitter()
   constructor(private router: Router,private minerData: MinersDataService, private activatedRoute: ActivatedRoute,private dialogref: MatDialog,private dialog: MatDialog){
     this.identifier=this.activatedRoute.snapshot.params['identifier']
+    this.getMiner()
+    console.log("Get Minner ",this.data);
+    
+    // this.makeData()
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
         if((val.url).includes('/miner')){
@@ -28,6 +36,7 @@ export class TopBarMinerComponent implements OnInit {
             this.heading="Miners details"
             this.toShow=true
             this.showSearch=false
+                        
           }
         }
         if((val.url).startsWith('/createMiner')){
@@ -40,9 +49,21 @@ export class TopBarMinerComponent implements OnInit {
     }); 
   }
   ngOnInit(): void {
+    
   }
+  
   sendFlag(){
     this.receiveFlag.emit(true)
+  }
+  getMiner = () => {
+    this.minerData.miners().subscribe( (d:any)=>{
+      this.data={
+        "searchData":d["dataminers"],
+        "endPoint":"miner"
+      }
+    })
+
+    
   }
   deleteMiner(){
     this.minerData.deleteMiner(this.activatedRoute.snapshot.params['identifier']).subscribe({

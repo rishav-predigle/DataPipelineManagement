@@ -15,9 +15,13 @@ export class TopBarParameterComponent implements OnInit {
   identifier:any
   toShow=true
   showSearch=false
+  searchData:any
+  data:any
+  placeholder:string='search for Parameter...'
   @Output() receiveFlag:EventEmitter<any>=new EventEmitter()
   constructor(private router: Router,private paramData: ParamService, private activatedRoute: ActivatedRoute,private dialogref: MatDialog,private dialog: MatDialog){
     this.identifier=this.activatedRoute.snapshot.params['identifier']
+    this.getParam()    
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
         if((val.url).includes('/parameter')){
@@ -41,6 +45,16 @@ export class TopBarParameterComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+  getParam = () => {
+    this.paramData.dataparams().subscribe( (d:any)=>{
+      this.data={        
+        "searchData":d["dataparams"],
+        "endPoint":"parameter"
+      }  
+    })
+    
+  }
+  
   sendFlag(){
     this.receiveFlag.emit(true)
   }

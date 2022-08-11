@@ -15,8 +15,12 @@ export class TopBarEntityComponent implements OnInit {
   identifier:any
   toShow=true
   showSearch=false
+  searchData:any
+  data:any;
+  placeholder:string='search for DataEntity...'
   @Output() receiveFlag:EventEmitter<any>=new EventEmitter()
   constructor(private router: Router,private entityData: EntityDataService, private activatedRoute: ActivatedRoute,private dialogref: MatDialog,private dialog: MatDialog){
+    this.getEntity()
     this.identifier=this.activatedRoute.snapshot.params['identifier']
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
@@ -44,6 +48,14 @@ export class TopBarEntityComponent implements OnInit {
   ngOnInit(): void {
     
     
+  }
+  getEntity = () => {
+    this.entityData.allEntities().subscribe( (d:any)=>{
+      this.data={
+        "searchData":d["dataentities"],
+        "endPoint":"dataEntity"
+      }
+    })
   }
 
   sendFlag(){
