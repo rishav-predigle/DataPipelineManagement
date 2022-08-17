@@ -1,0 +1,17 @@
+<div class="botHeading" style="display: flex">
+  <p class="botHeading" style="float: left">Bot name:</p>
+  <div class="botName">
+    <p class="botName">Data Bot#1</p>
+  </div>
+</div>
+
+<div>
+  <div class="bot-inputs">
+    <div *ngFor="let data of botInput" class="bot">
+      <div class="bot-label">
+        <label>{{ data.label }}</label>
+        <input type="text" placeholder="{{ data.value }}" />
+      </div>
+    </div>
+  </div>
+</div>

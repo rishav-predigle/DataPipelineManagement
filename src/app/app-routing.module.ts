@@ -14,6 +14,7 @@ import { ManageDataStageComponent } from './components/data-stage/manage-data-st
 import { ManageParameterComponent } from './components/parameter/manage-parameter/manage-parameter.component';
 import { ManageBotComponent } from './components/bots/manage-bot/manage-bot.component';
 import { ManageMinerComponent } from './components/miner/manage-miner/manage-miner.component';
+import { ViewBotComponent } from './components/bots/view-bot/view-bot.component';
 
 
 const routes : Routes = [{
@@ -23,7 +24,10 @@ const routes : Routes = [{
     path:'createBot',
     component:ManageBotComponent
   },
-  
+  {
+    path:'view-bot',
+    component:ViewBotComponent
+  },
   
   {
     path:'miner',

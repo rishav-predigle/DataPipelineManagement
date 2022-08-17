@@ -47,6 +47,9 @@ import { TopBarBotComponent } from './components/bots/top-bar-bot/top-bar-bot.co
 import { ManageBotComponent } from './components/bots/manage-bot/manage-bot.component';
 import { ManageMinerComponent } from './components/miner/manage-miner/manage-miner.component';
 import { TopBarMinerComponent } from './components/miner/top-bar-miner/top-bar-miner.component';
+import { ViewBotComponent } from './components/bots/view-bot/view-bot.component';
+import { ViewBotStepsComponent } from './components/bots/view-bot/view-bot-steps/view-bot-steps.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +78,10 @@ import { TopBarMinerComponent } from './components/miner/top-bar-miner/top-bar-m
     TopBarBotComponent,
     ManageBotComponent,
     ManageMinerComponent,
-    TopBarMinerComponent
+    TopBarMinerComponent,
+    ViewBotComponent,
+    ViewBotStepsComponent,
+    
   ],
   imports: [
     BrowserModule,

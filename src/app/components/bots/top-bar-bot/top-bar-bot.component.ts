@@ -29,6 +29,12 @@ export class TopBarBotComponent implements OnInit {
             this.showSearch=false
           }
         }
+        if((val.url)=='/view-bot'){
+          this.showSearch=true  
+          this.toShow=false
+          this.heading="Data Bot1256"
+        }
+
         if((val.url).startsWith('/createBot')){
           this.heading="Data Bot details"
           this.toShow=false

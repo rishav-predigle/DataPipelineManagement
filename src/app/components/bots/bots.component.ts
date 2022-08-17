@@ -16,7 +16,6 @@ export class BotsComponent implements OnInit {
 
     })
   }
- 
   ngOnInit(): void {
   }
 
