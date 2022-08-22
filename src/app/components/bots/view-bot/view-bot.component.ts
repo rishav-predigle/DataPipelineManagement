@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewBotComponent implements OnInit {
   
-  
+  public tabs=["step 1", "step 2", "step 3"];
 
   constructor() { }
 

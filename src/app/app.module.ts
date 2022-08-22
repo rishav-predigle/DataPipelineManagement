@@ -49,6 +49,7 @@ import { ManageMinerComponent } from './components/miner/manage-miner/manage-min
 import { TopBarMinerComponent } from './components/miner/top-bar-miner/top-bar-miner.component';
 import { ViewBotComponent } from './components/bots/view-bot/view-bot.component';
 import { ViewBotStepsComponent } from './components/bots/view-bot/view-bot-steps/view-bot-steps.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { ViewBotStepsComponent } from './components/bots/view-bot/view-bot-steps
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MaterialModule
 
     
   ],

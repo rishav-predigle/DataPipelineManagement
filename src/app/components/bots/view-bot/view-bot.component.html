@@ -16,10 +16,10 @@
     <div class="count">03</div>
   </div>
   <mat-tab-group>
-    <mat-tab>
+    <mat-tab *ngFor="let tab of tabs">
+      
       <ng-template mat-tab-label>
-        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-        First
+        {{tab}}
       </ng-template>
       <app-view-bot-steps></app-view-bot-steps>
    
